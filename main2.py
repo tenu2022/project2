@@ -5,6 +5,7 @@ class Window(tk.Tk):
         super().__init__()
         red =tk.Canvas(self,width=70,height=70)
         red.create_rectangle(10,10,60,60,fill="red")
+        red.bind('<ButtonRelease-1>',self.mouse_click)
         red.grid(row=0, column=0)
 
         green =tk.Canvas(self,width=70,height=70)
@@ -15,6 +16,8 @@ class Window(tk.Tk):
         blue.create_rectangle(10,10,60,60,fill="blue")
         blue.grid(row=0, column=2)
 
+    def mouse_click(self,event):
+        print(event)
 
 def main():
     window = Window()
