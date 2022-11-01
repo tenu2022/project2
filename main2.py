@@ -49,22 +49,25 @@ class Window(tk.Tk):
         red =ColorCanvas(self,"red",width=100,height=100)
         red.bind('<ButtonRelease-1>',self.mouse_click)
         red.grid(row=0, column=0)
-        red.state = ColorCanvas.ON
+        
 
         green =ColorCanvas(self,"green",width=100,height=100)
+        green.bind('<ButtonRelease-1>',self.mouse_click)
         green.grid(row=0, column=1)
-        green.state = ColorCanvas.ON
+        
 
         blue =ColorCanvas(self,"blue",width=100,height=100)
+        blue.bind('<ButtonRelease-1>',self.mouse_click)
         blue.grid(row=0, column=2)
-        blue.state = ColorCanvas.ON
+        
 
     def mouse_click(self,event):
         print(event.__dict__)
-        event.widget.delete()
-        event.widget.create_rectangle(10,10,60,60,fill="white")
-        event.widget.create_rectangle(20,20,50,50,fill="red")
-        event.widget.update()
+        print(event.widget.rec_color)
+        #event.widget.delete()
+        #event.widget.create_rectangle(10,10,60,60,fill="white")
+        #event.widget.create_rectangle(20,20,50,50,fill="red")
+        #event.widget.update()
 
 def main():
     window = Window()
